@@ -145,6 +145,7 @@ function lib:Window(text, preset, closebind)
             if not ui then return; end
             if ui and ui.Enabled then
                 TweenService:Create(Main, TweenInfo.new(0.6, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.fromOffset(0, 0)}):Play()
+                task.wait(0.65)
                 ui.Enabled = false
             else
                 ui.Enabled = true
