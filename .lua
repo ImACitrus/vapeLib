@@ -142,11 +142,11 @@ function lib:Window(text, preset, closebind)
 
     UserInputService.InputBegan:Connect(function(input, event)
         if input.KeyCode == CloseBind then
-            if knixhub.Enabled then
+            if ui.Enabled then
                 TweenService:Create(Main, TweenInfo.new(0.6, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.fromOffset(0, 0)}):Play()
-                knixhub.Enabled = false
+                ui.Enabled = false
             else
-                knixhub.Enabled = true
+                ui.Enabled = true
                 TweenService:Create(Main, TweenInfo.new(0.6, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.fromOffset(560, 319)}):Play()
             end
         end
