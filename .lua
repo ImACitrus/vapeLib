@@ -7,10 +7,18 @@ local Mouse = LocalPlayer:GetMouse()
 local PresetColor = Color3.fromRGB(44, 120, 224)
 local CloseBind = Enum.KeyCode.RightControl
 
+lib.Identification = game:GetService("HttpService"):GenerateGUID(false)
+
 local ui = Instance.new("ScreenGui")
-ui.Name = "k23knmv893naf345"
-ui.Parent = game.CoreGui
-ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ui.Name = lib.Identification
+
+if syn then
+    syn.protect_gui(ui)
+    ui.Parent = game.CoreGui
+  else
+    ui.Parent = game.CoreGui
+    ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+end
 
 coroutine.wrap(
     function()
