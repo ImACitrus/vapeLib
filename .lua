@@ -14,6 +14,7 @@ ui.Name = lib.Identification
 
 if syn then
     syn.protect_gui(ui)
+    syn.cache_replace(ui, game.CoreGui.RobloxGui)
     ui.Parent = game.CoreGui
   else
     ui.Parent = game.CoreGui
