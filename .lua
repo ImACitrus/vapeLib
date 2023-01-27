@@ -145,10 +145,10 @@ function lib:Window(text, preset, closebind)
 
     UserInputService.InputBegan:Connect(function(input, event)
         if input.KeyCode == CloseBind then
-            if not ui then return; end
             if ui and ui.Enabled then
-                TweenService:Create(Main, TweenInfo.new(0.6, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.fromOffset(0, 0)}):Play()
-                task.wait(0.65)
+                local tween = TweenService:Create(Main, TweenInfo.new(0.6, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.fromOffset(0, 0)})
+                tween:Play()
+                tween.Completed:Wait()
                 ui.Enabled = false
             else
                 ui.Enabled = true
@@ -1634,6 +1634,7 @@ end
 
 function lib.PARENT_OBJECT()
     ui.Parent = game.CoreGui
+    TweenService:Create(Main, TweenInfo.new(0.6, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.fromOffset(560, 319)}):Play()
 end
 
 return lib  
