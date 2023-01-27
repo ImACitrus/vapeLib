@@ -7,9 +7,12 @@ local Mouse = LocalPlayer:GetMouse()
 local PresetColor = Color3.fromRGB(44, 120, 224)
 local CloseBind = Enum.KeyCode.RightControl
 
+local Name = "ca897609"
+for _, v in next, game.CoreGui:GetChildren() do
+    if v.Name == Name then v.Parent = nil if not v then continue else v:Remove() end end end
+
 local ui = Instance.new("ScreenGui")
-ui.Name = "ui"
-ui.Parent = game.CoreGui
+ui.Name = Name
 ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 coroutine.wrap(
@@ -1628,4 +1631,9 @@ function lib:Window(text, preset, closebind)
     end
     return tabhold
 end
+
+function lib.PARENT_OBJECT()
+    ui.Parent = game.CoreGui
+end
+
 return lib  
