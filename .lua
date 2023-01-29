@@ -7,12 +7,14 @@ local Mouse = LocalPlayer:GetMouse()
 local PresetColor = Color3.fromRGB(44, 120, 224)
 local CloseBind = Enum.KeyCode.RightControl
 
-local Name = "ca897609"
 for _, v in next, game.CoreGui:GetChildren() do
-    if v.Name == Name then v.Parent = nil if not v then continue else v:Remove() end end end
+    if _G.Name then
+    if v.Name == _G.Name then v:Remove() end end end
+
+_G.Name = (game:GetService"HttpService":GenerateGUID(false)):lower()
 
 local ui = Instance.new("ScreenGui")
-ui.Name = Name
+ui.Name = _G.Name
 ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 coroutine.wrap(
